@@ -5,11 +5,15 @@ public class Teller {
 	private int verdi = 0;
 
 	public void tellOpp() {
-		verdi++;
+//		synchronized (this) {
+			verdi++;
+//		}
 	}
 
 	public void tellNed() {
-		verdi--;
+//		synchronized (this) {
+			verdi--;
+//		}
 	}
 
 	public int getVerdi() {
