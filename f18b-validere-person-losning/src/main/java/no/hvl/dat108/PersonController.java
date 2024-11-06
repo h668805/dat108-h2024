@@ -20,7 +20,7 @@ public class PersonController {
 	
 	@GetMapping("/sjekkPerson")
 	public String sjekkPerson(Model model,
-			@Valid @ModelAttribute("person") Person person,
+			@Valid @ModelAttribute("person") Deltager person,
 			BindingResult bindingResult) {
 		
 		if(bindingResult.hasErrors()) {

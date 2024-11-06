@@ -19,13 +19,13 @@ public class PersonValideringTest {
 	
 	private Validator validator;
 	
-	private Person testPerson;
+	private Deltager testPerson;
 	
 	@BeforeEach
 	void setUp() {
 	    validator = Validation.buildDefaultValidatorFactory().getValidator();
 	    
-	    testPerson = new Person();
+	    testPerson = new Deltager();
 	    testPerson.setNavn("Arne");
 	    testPerson.setMobil("12345678");
 	    testPerson.setHoydecm(180);
@@ -34,7 +34,7 @@ public class PersonValideringTest {
 	
 	@Test
 	void testPersonHarGyldigeInitVerdier() {
-		Set<ConstraintViolation<Person>> violations = validator.validate(testPerson);
+		Set<ConstraintViolation<Deltager>> violations = validator.validate(testPerson);
 		assertTrue(violations.isEmpty());
 	}
 
@@ -59,7 +59,7 @@ public class PersonValideringTest {
 	//Hjelpemetode for å sjekke akkurat en feil
 	private void sjekkAtPersonErUgyldigMedDenneEneFeilen(String feilmelding) {
 		
-		Set<ConstraintViolation<Person>> violations = validator.validate(testPerson);
+		Set<ConstraintViolation<Deltager>> violations = validator.validate(testPerson);
 		assertFalse(violations.isEmpty());
 		assertThat(violations).hasSize(1);
 		
